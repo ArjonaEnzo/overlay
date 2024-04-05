@@ -16,14 +16,99 @@ export default function Home() {
       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
       transition: {
         ease: "easeInOut",
-        duration:0.8,
-        delay:1,
+        duration: 0.8,
+        delay: 1,
       },
     },
   };
+  const textAnimate1 = {
+    hidden: {
+      y: "100%",
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: "easeInOut",
+        staggerChildren: 0.4,
+        dalayChildren: 1,
+      },
+    },
+  };
+  const textAnimate2 = {
+    hidden: {
+      x: 0,
+    },
+    show: (i) => ({
+      x: i,
+      opacity: 1,
+      transition: {
+        ease: "easeInOut",
+        duration: 0.8,
+      },
+    }),
+  };
+  const imageAnimate = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.6,
+        delayChildren: 3.6,
+        ease: "easeInOut",
+      },
+    },
+  };
+  const imageanimateChildren = {
+    hidden: {
+      x: 100,
+      opacity: 0,
+    },
+    show: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        ease: "easeInOut",
+      },
+    },
+  };
+  const navAnimated = {
+    hidden: {
+      y: "-100%",
+    },
+    show: {
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 60,
+        delay: 2,
+      },
+    },
+  };
+  const textParagraph = {
+    hidden: {
+      y: "-100",
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 60,
+        delay: 2.6,
+      },
+    },
+  };
+
   return (
     <main className="h-screen px-4 overflow-hidden">
-      <div className="absolute inset-0 h-screen w-screen z-0">
+      <motion.div
+        className="absolute inset-0 h-screen w-screen z-0"
+        variants={bgAnimation}
+        initial="hidden"
+        animate="show"
+      >
         <Image
           src="/img/LOGO-NEGRO-FONDO-BLANCO (1).jpg"
           alt="background"
@@ -32,8 +117,13 @@ export default function Home() {
           sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
           className="object-cover brightness-50"
         />
-      </div>
-      <nav className="flex justify-between items-center py-2 relative z-10">
+      </motion.div>
+      <motion.nav
+        className="flex justify-between items-center py-2 relative z-10"
+        variants={navAnimated}
+        initial="hidden"
+        animate="show"
+      >
         <div
           className={`text-xl font-bold text-black underline ${pacifico.className}`}
         >
@@ -44,16 +134,21 @@ export default function Home() {
           <li className="font-semibold text-white">Sobre ATACAMA</li>
           <li className="font-semibold text-white">Contacto</li>
         </ul>
-      </nav>
+      </motion.nav>
 
       <div className="relative top-[120px]">
-        <div className="relative left-[25%]">
-          <h1
+        <motion.div
+          className="relative left-[25%]"
+          variants={textAnimate1}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.h1
             className={`text-9x1 text-white tracking-tighter font-bold ${pacifico.className}`}
           >
             TRabajaando
-          </h1>
-        </div>
+          </motion.h1>
+        </motion.div>
         <div className="relative left-[25%]">
           <h1 className={`text-9x1 text-white tracking-tighter font-bold `}>
             Experience
