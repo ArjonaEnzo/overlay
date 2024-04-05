@@ -145,15 +145,24 @@ export default function Home() {
         >
           <motion.h1
             className={`text-9x1 text-white tracking-tighter font-bold ${pacifico.className}`}
+            variants={textAnimate2}
           >
             TRabajaando
           </motion.h1>
         </motion.div>
-        <div className="relative left-[25%]">
-          <h1 className={`text-9x1 text-white tracking-tighter font-bold `}>
+        <motion.div
+          className="relative left-[25%]"
+          variants={textAnimate1}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.h1
+            className={`text-9x1 text-white tracking-tighter font-bold `}
+            variants={textAnimate2}
+          >
             Experience
-          </h1>
-        </div>
+          </motion.h1>
+        </motion.div>
       </div>
 
       <div className="flex gap-4 absolute bottom-4">
