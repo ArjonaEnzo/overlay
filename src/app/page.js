@@ -31,6 +31,7 @@ export default function Home() {
       opacity: 1,
       transition: {
         ease: "easeInOut",
+        duration: 0.8,
         staggerChildren: 0.4,
         dalayChildren: 1,
       },
@@ -42,7 +43,6 @@ export default function Home() {
     },
     show: (i) => ({
       x: i,
-      opacity: 1,
       transition: {
         ease: "easeInOut",
         duration: 0.8,
@@ -55,7 +55,7 @@ export default function Home() {
       transition: {
         staggerChildren: 0.6,
         delayChildren: 3.6,
-        ease: "easeInOut",
+        ease: [0.25, 0.4, 0.25, 1],
       },
     },
   };
@@ -96,7 +96,7 @@ export default function Home() {
       transition: {
         type: "spring",
         stiffness: 60,
-        delay: 2.6,
+        delay: 2.8,
       },
     },
   };
@@ -146,10 +146,25 @@ export default function Home() {
           <motion.h1
             className={`text-9x1 text-white tracking-tighter font-bold ${pacifico.className}`}
             variants={textAnimate2}
+            custom={-150}
           >
             TRabajaando
           </motion.h1>
         </motion.div>
+          <motion.p
+            className="absolute top-12 right-32 z-10 w-[500px] text-justify leading-5 text-[#eaeaea] text-xs font-medium"
+            variants={textParagraph}
+            initial="hidden"
+            animate="show"
+          >
+            <span className="text-yellow-200">
+              The art of painting is a highly esteemed and revered form of
+              artistic expression. It is a discipline that requires great skill,
+              technique, and creativity.
+            </span>{" "}
+            Paintings have been created throughout history, serving as a means
+            of communication, documentation, and aesthetic enjoyment.
+          </motion.p>
         <motion.div
           className="relative left-[25%]"
           variants={textAnimate1}
@@ -159,38 +174,39 @@ export default function Home() {
           <motion.h1
             className={`text-9x1 text-white tracking-tighter font-bold `}
             variants={textAnimate2}
+            custom={100}
           >
             Experience
           </motion.h1>
         </motion.div>
       </div>
 
-      <div className="flex gap-4 absolute bottom-4">
-        <div className="relative w-[300px] h-[250px]">
+      <motion.div className="flex gap-4 absolute bottom-4" variants={imageAnimate} initial="hidden" animate="show">
+        <motion.div className="relative w-[300px] h-[250px]"variants={imageanimateChildren}>
           <Image
             src="/img/GIIfwOhW0AAcKb2.png"
             fill
             sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
             className="object-cover rounded-sm saturate-150"
           />
-        </div>
-        <div className="relative w-[300px] h-[250px]">
+        </motion.div>
+        <motion.div className="relative w-[300px] h-[250px]"variants={imageanimateChildren}>
           <Image
             src="/img/GCV9NdDWgAA_H1v.jpg"
             fill
             sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
             className="object-cover rounded-sm saturate-150"
           />
-        </div>
-        <div className="relative w-[300px] h-[250px]">
+        </motion.div>
+        <motion.div className="relative w-[300px] h-[250px]"variants={imageanimateChildren}>
           <Image
             src="/img/GBv-sTbWcAASkT-.jpg"
             fill
             sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
             className="object-cover rounded-sm saturate-150"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </main>
   );
 }
