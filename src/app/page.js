@@ -1,16 +1,18 @@
 "use client";
-import Image from "next/image";
-import { Pacifico } from "next/font/google";
-import { motion } from "framer-motion";
 
-const pacifico = Pacifico({
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Pacifico } from "next/font/google";
+
+const pasifico = Pacifico({
   subsets: ["latin"],
   weight: "400",
 });
+
 export default function Home() {
-  const bgAnimation = {
+  const bgAnimate = {
     hidden: {
-      clipPath: "polygon(21% 27%, 77% 26%, 77% 77%, 21% 77%)",
+      clipPath: "polygon(21% 26%, 77% 26%, 77% 77%, 21% 77%)",
     },
     show: {
       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
@@ -33,7 +35,7 @@ export default function Home() {
         ease: "easeInOut",
         duration: 0.8,
         staggerChildren: 0.4,
-        dalayChildren: 1,
+        delayChildren: 1,
       },
     },
   };
@@ -44,7 +46,7 @@ export default function Home() {
     show: (i) => ({
       x: i,
       transition: {
-        ease: "easeInOut",
+        ease: "easeOut",
         duration: 0.8,
       },
     }),
@@ -59,22 +61,22 @@ export default function Home() {
       },
     },
   };
-  const imageanimateChildren = {
+  const imageAnimateChild = {
     hidden: {
-      x: 100,
       opacity: 0,
+      x: 100,
     },
     show: {
-      x: 0,
       opacity: 1,
+      x: 0,
       transition: {
         ease: "easeInOut",
       },
     },
   };
-  const navAnimated = {
+  const navAnimate = {
     hidden: {
-      y: "-100%",
+      y: "-110%",
     },
     show: {
       y: 0,
@@ -87,7 +89,7 @@ export default function Home() {
   };
   const textParagraph = {
     hidden: {
-      y: "-100",
+      y: "-100%",
       opacity: 0,
     },
     show: {
@@ -100,42 +102,41 @@ export default function Home() {
       },
     },
   };
-
   return (
     <main className="h-screen px-4 overflow-hidden">
       <motion.div
-        className="absolute inset-0 h-screen w-screen z-0"
-        variants={bgAnimation}
+        className="absolute inset-0 w-screen h-screen z-0"
+        variants={bgAnimate}
         initial="hidden"
         animate="show"
       >
         <Image
-          src="/img/LOGO-NEGRO-FONDO-BLANCO (1).jpg"
+          src="/img/LOGO-NEGRO-FONDO-BLANCO.jpg"
           alt="background"
           fill
+          sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw"
           priority={true}
-          sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
           className="object-cover brightness-50"
         />
       </motion.div>
+
       <motion.nav
-        className="flex justify-between items-center py-2 relative z-10"
-        variants={navAnimated}
+        className="flex justify-between items-center text-white relative z-10 pt-4"
+        variants={navAnimate}
         initial="hidden"
         animate="show"
       >
         <div
-          className={`text-xl font-bold text-black underline ${pacifico.className}`}
+          className={`text-xl text-white font-bold underline ${pasifico.className}`}
         >
-          TTrabjando
+          ATACAMA
         </div>
         <ul className="w-[300px] flex justify-between items-center">
-          <li className="font-semibold text-white">Inicio</li>
-          <li className="font-semibold text-white">Sobre ATACAMA</li>
-          <li className="font-semibold text-white">Contacto</li>
+          <li>Home</li>
+          <li>Sobre Nosotros</li>
+          <li>Contacto</li>
         </ul>
       </motion.nav>
-
       <div className="relative top-[120px]">
         <motion.div
           className="relative left-[25%]"
@@ -144,65 +145,82 @@ export default function Home() {
           animate="show"
         >
           <motion.h1
-            className={`text-9x1 text-white tracking-tighter font-bold ${pacifico.className}`}
+            className={`text-9xl text-[#eaeaea] lowercase tracking-tighter font-semibold z-10 ${pasifico.className}`}
             variants={textAnimate2}
             custom={-150}
           >
-            TRabajaando
+            ESTUDIO
           </motion.h1>
         </motion.div>
-          <motion.p
-            className="absolute top-12 right-32 z-10 w-[500px] text-justify leading-5 text-[#eaeaea] text-xs font-medium"
-            variants={textParagraph}
-            initial="hidden"
-            animate="show"
-          >
-            <span className="text-yellow-200">
-              The art of painting is a highly esteemed and revered form of
-              artistic expression. It is a discipline that requires great skill,
-              technique, and creativity.
-            </span>{" "}
-            Paintings have been created throughout history, serving as a means
-            of communication, documentation, and aesthetic enjoyment.
-          </motion.p>
+        <motion.p
+          className="absolute top-12 right-32 z-10 w-[500px] text-justify leading-5 text-[#eaeaea] text-xs font-medium"
+          variants={textParagraph}
+          initial="hidden"
+          animate="show"
+        >
+          <span className="text-yellow-200">
+            En ATACAMA, capturamos momentos inolvidables con un enfoque único y
+            creativo. Somos un estudio audiovisual especializado en eventos
+            sociales, comprometidos en transformar cada ocasión en una
+            experiencia visualmente impactante y emocionalmente auténtica.
+          </span>{" "}
+          Confía en nosotros para capturar tus momentos más preciados y
+          convertirlos en recuerdos que perduren toda la vida.
+        </motion.p>
         <motion.div
-          className="relative left-[25%]"
+          className="relative left-[20%]"
           variants={textAnimate1}
           initial="hidden"
           animate="show"
         >
           <motion.h1
-            className={`text-9x1 text-white tracking-tighter font-bold `}
+            className="text-9xl text-white font-semibold tracking-tighter z-10"
             variants={textAnimate2}
             custom={100}
           >
-            Experience
+            AUDIOVISUAL
           </motion.h1>
         </motion.div>
       </div>
-
-      <motion.div className="flex gap-4 absolute bottom-4" variants={imageAnimate} initial="hidden" animate="show">
-        <motion.div className="relative w-[300px] h-[250px]"variants={imageanimateChildren}>
-          <Image
-            src="/img/GIIfwOhW0AAcKb2.png"
-            fill
-            sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
-            className="object-cover rounded-sm saturate-150"
-          />
-        </motion.div>
-        <motion.div className="relative w-[300px] h-[250px]"variants={imageanimateChildren}>
+      <motion.div
+        className="flex gap-4 absolute bottom-4"
+        variants={imageAnimate}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.div
+          className="relative w-[300px] h-[200px]"
+          variants={imageAnimateChild}
+        >
           <Image
             src="/img/GCV9NdDWgAA_H1v.jpg"
+            alt="image"
             fill
-            sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
+            sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw"
             className="object-cover rounded-sm saturate-150"
           />
         </motion.div>
-        <motion.div className="relative w-[300px] h-[250px]"variants={imageanimateChildren}>
+        <motion.div
+          className="relative w-[300px] h-[200px]"
+          variants={imageAnimateChild}
+        >
           <Image
-            src="/img/GBv-sTbWcAASkT-.jpg"
+            src="/img/GDusokhWQAAVJOd.jpg"
+            alt="image"
             fill
-            sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw "
+            sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw"
+            className="object-cover rounded-sm saturate-150"
+          />
+        </motion.div>
+        <motion.div
+          className="relative w-[300px] h-[200px]"
+          variants={imageAnimateChild}
+        >
+          <Image
+            src="/img/GIIfwOhW0AAcKb2.png"
+            alt="image"
+            fill
+            sizes="(max-width:768px) 33vw, (max-width:1024px) 50vw, 100vw"
             className="object-cover rounded-sm saturate-150"
           />
         </motion.div>
