@@ -124,9 +124,9 @@ export default function Home() {
           <li>Contacto</li>
         </ul>
       </motion.nav>
-      <div className="relative top-[120px] bg-red-700">
+      <section id="home" className="w-screen h-screen relative ">
         <motion.div
-          className="relative left-[25%] bg-blue-700"
+          className="absolute left-[40%] top-[2%]"
           variants={textAnimate1}
           initial="hidden"
           animate="show"
@@ -140,7 +140,7 @@ export default function Home() {
           </motion.h1>
         </motion.div>
         {/* <motion.p
-          className="absolute top-12 right-32 z-10 w-[500px] text-justify leading-5 text-[#eaeaea] text-xs font-medium"
+          className="absolute -top-5 right-200 z-10 w-[500px] text-justify leading-5 text-[#eaeaea] text-xs font-medium bg-red-800"
           variants={textParagraph}
           initial="hidden"
           animate="show"
@@ -154,21 +154,21 @@ export default function Home() {
           Confía en nosotros para capturar tus momentos más preciados y
           convertirlos en recuerdos que perduren toda la vida.
         </motion.p> */}
-        {/* <motion.div
-          className="relative left-[20%]"
+        <motion.div
+          className="absolute right-[15%] top-[10%] "
           variants={textAnimate1}
           initial="hidden"
           animate="show"
         >
           <motion.h1
-            className="text-9xl text-white font-semibold tracking-tighter z-10"
+            className="text-5xl text-black font-semibold tracking-tighter z-10"
             variants={textAnimate2}
             custom={100}
           >
             AUDIOVISUAL
           </motion.h1>
-        </motion.div> */}
-      </div>
+        </motion.div>
+      </section>
       {/* <div className="flex gap-3 flex-wrap">
         <motion.div
           className="flex gap-4 absolute bottom-4"
